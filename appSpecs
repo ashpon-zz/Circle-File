@@ -1,0 +1,70 @@
+MapBox:
+q: how quickly can we learn API?
+2. is it a visual package or a developer's package?
+3. upload the csv to mapbox
+4. use it for compatetor
+5. functionality:
+	1. Layer 1 - preload the BBB stores on the NJ map drop pins 
+	2. we 'click' on a pin and create a new 'layer'
+	3. that 'click' will display location name / store name etc 
+	4. default it will highlight all the zip codes up to 15 Miles within a circle
+	5. use the slider to play with the distance / input distance circle will change  
+	6. when changing the distance clear earlier display - clear all & bring in Layer 1
+	7. on the bottom or side show demographic distribution by zip code in a pie chart 
+BONUS:
+	1. ability to select two or more locations/ store / pins 
+	2. have overlapping circles 
+	3. Show competitors - display pins (diff color) and overlap WITHIN the distance selected
+	4. use API to get store locations 
+
+
+Plan:
+1.Data Collection and finalization - 
+	a. Store locations - complete 80% use from the static data set
+	b. census data: - Marek 
+		b2 - Gender distribution - complete
+		b3 - median age Male / Female  - complete
+		b4 - population and income coming from uszipcodes - 50%
+
+	c. Database design - Jon MySql
+		T1 - Location table - LocationMaster
+			Store name
+			Address
+			Lat
+			long
+			Zip code - PK
+			State
+			City
+		T2 - Census data - CensusData
+			Zip code - PK
+			Total Population - from uszip
+			Male Population
+			Female Population
+			Male Median Age
+			Female Median Age
+			Income - from uszip
+		T3 - USZip code data (preloaded) - SuppDemo
+			Zip Code - PK 
+			Total Population
+			Income 
+
+2. Flask Engine - AN
+	a. Create a default route to display NJmap 
+	b. click on a location will call location route 
+		2b1. pass lat, long, radius 
+	c. get data from tables and send to API call
+
+3. Presentation - Andy /Marek
+	3a. HTML 
+		Display NJ Map 
+		Make a call to the default API
+		Displau all stores on the map (Pins)
+		bottom pane display data table 
+	3b. JAVAScript
+		on click on a pin call route 2 
+		will return all zips within d miles 
+		take each zip and highlight the zip on boundaries 
+
+Plan to complete this by 12/10....
+
+
